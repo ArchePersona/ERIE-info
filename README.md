@@ -8,21 +8,20 @@ Most AI systems are very good at producing an answer. ERIE is concerned with the
 
 > **What does the available evidence actually support?**
 
-ERIE organizes disconnected information into evidence with provenance, then provides a reasoning surface designed to keep conclusions grounded in that evidence.
+ERIE organizes disconnected information into evidence with provenance, resolves that information into structured knowledge, and provides a reasoning surface designed to keep conclusions grounded in the available evidence.
 
 **Evidence first. Reasoning second. Generation last.**
 
-## What ERIE does
+## Overview
 
-ERIE gives applications a reusable evidence and reasoning foundation.
-
-It is designed to preserve the context that ordinary retrieval can lose:
+ERIE gives applications a reusable evidence and reasoning foundation while preserving context that ordinary retrieval can lose:
 
 - where information came from
 - where it existed within its source
 - when it was acquired
-- which evidence supports a result
+- which evidence supports or conflicts with a claim
 - which claims were derived from that evidence
+- how claims relate, contradict, refine, duplicate, or supersede one another
 
 ERIE is not a chatbot, search product, or domain-specific application. It is infrastructure that other applications can build on.
 
@@ -30,28 +29,36 @@ SHERLOCK, for example, is an investigation application built on ERIE. ERIE itsel
 
 ## External model
 
-From an integrating application's perspective, ERIE is deliberately simple:
+From an integrating application's perspective, ERIE separates retrieval, evidence, knowledge, and reasoning:
 
 ```text
-Question / Retrieval Request
-            |
-            v
-     Relevant Evidence
-            |
-            v
-   Evidence-Grounded Reasoning
-            |
-            v
- Grounded Result + Supporting Evidence + Claims
+Sources
+   |
+   v
+Evidence + Provenance
+   |
+   v
+Structured Knowledge
+   |
+   +---- claims
+   +---- relationships
+   +---- contradictions
+   +---- provenance
+   |
+   v
+Evidence-Grounded Reasoning
+   |
+   v
+Grounded Result + Supporting Evidence + Claims
 ```
 
-The implementation behind that surface is proprietary. Consumers interact with ERIE through defined interfaces rather than depending on its internal implementation.
+The implementation behind that surface is proprietary. Consumers interact with ERIE through defined interfaces rather than depending on internal implementation details.
 
 ## Evidence
 
-Evidence is the fundamental unit ERIE reasons over.
+Evidence is the factual boundary ERIE reasons against.
 
-An evidence record contains the source material together with a stable reference describing its provenance. A reference identifies:
+An evidence record contains source material together with a stable reference describing its provenance. A reference identifies:
 
 - `source_id` — the originating source
 - `location` — where the evidence exists within that source
@@ -60,6 +67,16 @@ An evidence record contains the source material together with a stable reference
 Metadata may accompany evidence, but metadata is not silently promoted into evidence.
 
 Evidence used for a reasoning operation is supplied as an ordered `EvidenceSet`, keeping the material supporting a result explicit and inspectable.
+
+## Knowledge
+
+ERIE can transform evidence into structured knowledge rather than treating retrieved documents as the final reasoning substrate.
+
+Conceptually, that process can include artifact analysis, claim extraction, claim resolution, relationship discovery, provenance association, and decision recording.
+
+Claim resolution is designed to preserve meaningful distinctions such as duplicate, refined, superseded, contradictory, and independent claims instead of silently flattening disagreement.
+
+The result is a knowledge layer whose claims and relationships remain connected to their evidence and provenance.
 
 ## Reasoning
 
@@ -108,42 +125,52 @@ print(result.claims)
 
 This example illustrates the public contract rather than ERIE's internal implementation.
 
+See the [Integration Overview](docs/INTEGRATION.md) for the public conceptual interface.
+
 ## Evaluating ERIE
 
 ERIE is intended to be evaluated by behavior, not by how convincing generated prose sounds.
 
-Useful tests include:
+Useful tests include grounding, unsupported-claim detection, provenance preservation, evidence isolation, contradiction handling, traceability, repeatability, and provider independence.
 
-**Grounding** — Does the result remain within the supplied evidence?
+The central evaluation question is simple:
 
-**Unsupported claims** — Does the system introduce facts that cannot be traced to the evidence set?
+> **Does the system faithfully represent what the evidence supports?**
 
-**Provenance** — Can supporting information be traced back to its source and location?
-
-**Evidence isolation** — Does changing the supplied evidence change the permissible conclusions accordingly?
-
-**Traceability** — Can claims be connected to the evidence from which they were derived?
-
-**Provider independence** — Can underlying providers change without changing the application's conceptual contract with ERIE?
-
-These properties make ERIE suitable for comparative benchmarking against other evidence, retrieval, and reasoning systems.
+See [Evaluating ERIE](docs/EVALUATION.md) for a comparative evaluation framework.
 
 ## API access
 
 ERIE is closed-source proprietary software. The implementation repository is not public.
 
-Evaluation and commercial integration are provided through controlled API access. API credentials, endpoint-specific documentation, and current request/response schemas are supplied with access so that evaluators work against the deployed interface rather than documentation that may drift from it.
+Evaluation and commercial integration are provided through controlled API access. API credentials, endpoint-specific documentation, and current request/response schemas are supplied with access so evaluators work against the deployed interface rather than documentation that may drift from it.
+
+## Documentation
+
+Public documentation is indexed in [`docs/`](docs/README.md).
+
+These documents describe ERIE's supported external concepts and behavioral boundaries. The deployed API specification supplied with access is authoritative for an active integration.
 
 ## Relationship to ARCHETRON
 
-ERIE is one component of ARCHETRON. Its responsibility is evidence and evidence-grounded reasoning. Other components handle concerns such as execution observation, operational telemetry, governance, attention, and application-specific behavior.
+ERIE is one component of ARCHETRON. Its responsibility is evidence, structured knowledge, and evidence-grounded reasoning. Other components handle concerns such as execution observation, operational telemetry, governance, attention, and application-specific behavior.
 
 Those responsibilities are intentionally separate.
 
+## Repository policy
+
+This repository contains public ERIE information and documentation. It does not contain ERIE's proprietary implementation.
+
+- [License](LICENSE)
+- [Security Policy](SECURITY.md)
+- [Contribution Policy](CONTRIBUTING.md)
+
 ## Status
 
-ERIE is under active development. Public documentation describes the supported external concepts and behavioral guarantees without exposing proprietary implementation details.
+ERIE is under active development. Public documentation describes supported external concepts and behavioral guarantees without exposing proprietary implementation details.
 
 ## Licensing
 
-ERIE is proprietary software. All rights reserved. Commercial licensing and evaluation access are available directly from ARCHETRON.
+ERIE is proprietary software. Publication of this repository does not grant a license to ERIE software, source code, APIs, models, or other proprietary technology.
+
+Evaluation access and commercial licensing are available directly from ARCHETRON. See [LICENSE](LICENSE) for the terms governing the materials in this repository.
