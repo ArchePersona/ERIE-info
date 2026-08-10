@@ -161,7 +161,7 @@ Those responsibilities are intentionally separate.
 
 This repository contains public ERIE information and documentation. It does not contain ERIE's proprietary implementation.
 
-- [License](LICENSE)
+- [License](LICENSE.md)
 - [Security Policy](SECURITY.md)
 - [Contribution Policy](CONTRIBUTING.md)
 
@@ -173,4 +173,4 @@ ERIE is under active development. Public documentation describes supported exter
 
 ERIE is proprietary software. Publication of this repository does not grant a license to ERIE software, source code, APIs, models, or other proprietary technology.
 
-Evaluation access and commercial licensing are available directly from ARCHETRON. See [LICENSE](LICENSE) for the terms governing the materials in this repository.
+Evaluation access and commercial licensing are available directly from ARCHETRON. See [LICENSE.md](LICENSE.md) for the terms governing the materials in this repository.
