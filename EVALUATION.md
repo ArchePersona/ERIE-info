@@ -16,7 +16,7 @@ ERIE organizes cognition around investigations. Beyond answer quality, evaluate 
 - **Criteria satisfaction.** Does an investigation resolve only when all required criteria are satisfied? Does a blocking criterion prevent resolution while unsatisfied?
 - **Escalation discipline.** Is semantic reasoning invoked only at the deterministic boundary, never by default? Does the system acquire evidence or ask before escalating?
 - **Pressure.** Does pressure drive escalation deterministically, independent of reasoning?
-- **The scratch pad.** Does working cognition stay out of persistent knowledge? Do verified outcomes pass deterministic validation before becoming knowledge?
+- **Scratch.** Does working cognition stay out of persistent knowledge? Do verified outcomes pass deterministic validation before becoming knowledge?
 - **Piggyback seeds.** When semantic reasoning is invoked, does the model receive the complete investigation state rather than starting from scratch?
 
 See [How ERIE Thinks](HOW-ERIE-THINKS.md).

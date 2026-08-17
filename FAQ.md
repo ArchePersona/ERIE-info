@@ -28,7 +28,7 @@ No. ERIE is provider-independent and works with any language model. The model is
 
 ## What are the three cognitive layers?
 
-Chronos remembers, ERIE investigates, and the Scratch Pad thinks. Chronos is persistent knowledge; ERIE is purposeful investigation; the Scratch Pad is temporary working cognition. Nothing moves directly from speculation into persistent knowledge — every outcome must pass deterministic validation. See [COGNITIVE-LAYERS.md](COGNITIVE-LAYERS.md).
+Chronos remembers, ERIE investigates, and Scratch thinks. Chronos is persistent knowledge; ERIE is purposeful investigation; Scratch is temporary working cognition. Nothing moves directly from speculation into persistent knowledge — every outcome must pass deterministic validation. See [COGNITIVE-LAYERS.md](COGNITIVE-LAYERS.md).
 
 ## Does ERIE replace my application?
 

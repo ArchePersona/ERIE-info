@@ -5,7 +5,7 @@ ERIE's architecture separates cognition into three explicit layers. Each owns a 
 ```text
 Chronos remembers.
 ERIE investigates.
-Scratch Pad thinks.
+Scratch thinks.
 ```
 
 Together they provide:
@@ -45,11 +45,11 @@ ERIE owns:
 
 ERIE organizes cognition around Targets, not around reasoning. Reasoning is one capability used to advance a Target — invoked deterministically first, and escalated to semantic reasoning only at the defined boundary.
 
-## Scratch Pad thinks
+## Scratch thinks
 
-The Scratch Pad is the working cognition layer. Every Active Target owns one.
+Scratch is the working cognition layer. Every Active Target owns one.
 
-The Scratch Pad holds what is currently being considered:
+Scratch holds what is currently being considered:
 
 - observations
 - possible explanations
@@ -62,13 +62,13 @@ The Scratch Pad holds what is currently being considered:
 - investigation breadcrumbs
 - semantic notes
 
-The Scratch Pad is **not** knowledge. It is not truth. It is not persistent memory. It is disposable, editable, and expected to change. It exists only while it contributes to an investigation.
+Scratch is **not** knowledge. It is not truth. It is not persistent memory. It is disposable, editable, and expected to change. It exists only while it contributes to an investigation.
 
 ## The boundaries
 
 The separation is enforced, not aspirational:
 
-- Chronos never consumes Scratch Pad entries directly.
+- Chronos never consumes Scratch entries directly.
 - Nothing moves directly from speculation into persistent knowledge.
 - Every outcome must pass deterministic validation before it becomes knowledge in Chronos.
 - Verified outcomes are candidates — never knowledge on their own.
@@ -79,7 +79,7 @@ The lifecycle of an observation:
 Observation
     |
     v
-Scratch Pad
+Scratch
     |
     v
 Evaluated
@@ -95,7 +95,7 @@ Evaluated
           Chronos
 ```
 
-When a Target resolves, its Scratch Pad is discarded, archived for debugging, or summarized into provenance. It is never treated as memory.
+When a Target resolves, its Scratch workspace is discarded, archived for debugging, or summarized into provenance. It is never treated as memory.
 
 ## Why three layers
 
@@ -107,7 +107,7 @@ ERIE separates them structurally:
 |---|---|---|
 | Chronos | persistent knowledge, evidence, history, identity | yes |
 | ERIE | Targets, Criteria, State, Pressure, Next Action | no — it pursues |
-| Scratch Pad | temporary working cognition | no — it thinks |
+| Scratch | temporary working cognition | no — it thinks |
 
 This is what makes ERIE's answers defensible: at every step, the system knows which layer produced the claim, what evidence supports it, and whether it has been validated.
 

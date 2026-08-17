@@ -122,6 +122,6 @@ Before committing to an integration, evaluate ERIE on your own evidence: [EVALUA
 - [QUICKSTART.md](QUICKSTART.md) — from access to first investigation
 - [Target-Centered Cognition](TARGET-CENTERED-COGNITION.md) — the organizing principle
 - [How ERIE Thinks](HOW-ERIE-THINKS.md) — deterministic-first cognition and escalation
-- [Cognitive Layers](COGNITIVE-LAYERS.md) — Chronos / ERIE / Scratch Pad
+- [Cognitive Layers](COGNITIVE-LAYERS.md) — Chronos / ERIE / Scratch
 - [API.md](API.md) — API overview
 - [FAQ.md](FAQ.md) — common questions

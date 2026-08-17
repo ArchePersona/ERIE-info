@@ -65,14 +65,14 @@ The language model receives the current investigation frontier:
 - the current state
 - pressure
 - the requested cognitive operation
-- the current scratch pad
+- the current scratch workspace
 
 For example, when determining an employer:
 
 ```text
 Target: Determine employer
 
-Scratch Pad:
+Scratch:
 - Acme ruled out.
 - Promotion event appears relevant.
 - Need employment chronology.
@@ -81,9 +81,9 @@ Scratch Pad:
 
 The model does not start from scratch. It joins an existing investigation — with the candidate paths, eliminated possibilities, and unresolved contradictions already in view.
 
-## The scratch pad
+## Scratch
 
-Every Active Target owns a temporary cognitive workspace: the Scratch Pad. It holds what is currently being considered:
+Every Active Target owns a temporary cognitive workspace: the Scratch workspace. It holds what is currently being considered:
 
 - observations
 - possible explanations
@@ -96,7 +96,7 @@ Every Active Target owns a temporary cognitive workspace: the Scratch Pad. It ho
 - investigation breadcrumbs
 - semantic notes
 
-The Scratch Pad is working cognition, not knowledge. It is disposable, editable, and expected to change. Nothing moves directly from the Scratch Pad into persistent knowledge — every outcome must pass deterministic validation first.
+Scratch is working cognition, not knowledge. It is disposable, editable, and expected to change. Nothing moves directly from the Scratch workspace into persistent knowledge — every outcome must pass deterministic validation first.
 
 See [Cognitive Layers](COGNITIVE-LAYERS.md).
 

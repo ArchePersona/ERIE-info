@@ -70,11 +70,11 @@ resolve
 
 ### PiggybackSeed
 
-The complete investigation state transferred when semantic reasoning is invoked: the Target, its criteria, satisfied and unsatisfied criteria, missing evidence, current state, pressure, requested operation, and the scratch pad. The model joins an existing investigation rather than starting a new one.
+The complete investigation state transferred when semantic reasoning is invoked: the Target, its criteria, satisfied and unsatisfied criteria, missing evidence, current state, pressure, requested operation, and the current scratch workspace. The model joins an existing investigation rather than starting a new one.
 
-### ScratchPad
+### Scratch
 
-The Target's temporary cognitive workspace — working cognition, never knowledge. Observations, candidate explanations, eliminated paths, and intermediate reasoning. Nothing moves from the scratch pad into persistent knowledge without deterministic validation.
+The Target's temporary cognitive workspace — working cognition, never knowledge. Observations, candidate explanations, eliminated paths, and intermediate reasoning. Nothing moves from the scratch workspace into persistent knowledge without deterministic validation.
 
 ## The evidence surface
 
@@ -149,7 +149,7 @@ Integrate against the deployed API schemas supplied with access. Do not rely on 
 
 - [Target-Centered Cognition](TARGET-CENTERED-COGNITION.md) — the organizing principle
 - [How ERIE Thinks](HOW-ERIE-THINKS.md) — deterministic-first cognition and escalation
-- [Cognitive Layers](COGNITIVE-LAYERS.md) — Chronos / ERIE / Scratch Pad
+- [Cognitive Layers](COGNITIVE-LAYERS.md) — Chronos / ERIE / Scratch
 - [QUICKSTART.md](QUICKSTART.md) — first investigation end to end
 - [INTEGRATION.md](INTEGRATION.md) — fitting ERIE into your architecture
 - [EVALUATION.md](EVALUATION.md) — evaluating the contract behaviorally

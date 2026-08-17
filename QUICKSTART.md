@@ -53,7 +53,7 @@ The state is derived, never guessed: unknown, partial, ambiguous, resolved, exha
 
 ## Step 5 — Escalate only at the boundary
 
-Semantic reasoning is invoked only when deterministic investigation reaches its boundary — and only as a policy decision, never by default. When it is invoked, the model receives the complete investigation state through a Piggyback Seed: the target, its criteria, satisfied and unsatisfied criteria, missing evidence, state, pressure, the requested operation, and the scratch pad.
+Semantic reasoning is invoked only when deterministic investigation reaches its boundary — and only as a policy decision, never by default. When it is invoked, the model receives the complete investigation state through a Piggyback Seed: the target, its criteria, satisfied and unsatisfied criteria, missing evidence, state, pressure, the requested operation, and the current scratch workspace.
 
 The model does not start from scratch. It joins an existing investigation.
 
@@ -81,7 +81,7 @@ Once evaluation passes, see [INTEGRATION.md](INTEGRATION.md) for how ERIE fits i
 
 - [Target-Centered Cognition](TARGET-CENTERED-COGNITION.md) — the organizing principle
 - [How ERIE Thinks](HOW-ERIE-THINKS.md) — deterministic-first cognition and escalation
-- [Cognitive Layers](COGNITIVE-LAYERS.md) — Chronos / ERIE / Scratch Pad
+- [Cognitive Layers](COGNITIVE-LAYERS.md) — Chronos / ERIE / Scratch
 - [INTEGRATION.md](INTEGRATION.md) — fitting ERIE into your architecture
 - [EVALUATION.md](EVALUATION.md) — evaluating ERIE
 - [API.md](API.md) — API overview

@@ -119,7 +119,7 @@ ERIE maintains a working set of Active Targets. Each Active Target carries:
 - pressure
 - missing evidence
 - next cognitive action
-- its own scratch pad
+- its own scratch workspace
 
 Active Targets are event-driven: they are re-evaluated when new evidence arrives, when knowledge changes, when context changes, when pressure changes, or on explicit review. Continuous background reasoning never happens — Targets wake when relevant events occur.
 

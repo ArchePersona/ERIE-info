@@ -38,7 +38,7 @@ ERIE investigates. It provides target-centered cognition across four milestones:
 - ERIE-001: finite cognitive attention and the cognitive budget
 - ERIE-002: target-centered cognition (Intent, Targets, Criteria, State, Pressure, Next Action)
 - ERIE-003: first-class satisfaction criteria (kinds, composition, weight, recursion)
-- ERIE-004: the cognitive scratch pad
+- ERIE-004: the cognitive Scratch workspace
 
 ## Direction
 

@@ -50,7 +50,7 @@ Resolution
 
 - **Chronos** remembers.
 - **ERIE** investigates.
-- **Scratch Pad** thinks.
+- **Scratch** thinks.
 
 Deterministic cognition happens first. Semantic models are invoked only when deterministic investigation reaches its boundary.
 
@@ -127,7 +127,7 @@ ERIE v1.0.2 is platform complete and currently verified at **4,843 automated tes
 The architecture has matured through two complementary subsystems:
 
 - **Chronos v1** — persistent knowledge (world model, ontology, noun and event ledgers, evidence, provenance, evolution, materialization, placeholders, cognitive processors).
-- **ERIE 001-004** — purposeful investigation (finite cognitive attention, target-centered cognition, first-class satisfaction criteria, the cognitive scratch pad).
+- **ERIE 001-004** — purposeful investigation (finite cognitive attention, target-centered cognition, first-class satisfaction criteria, the cognitive Scratch workspace).
 
 See [ROADMAP.md](ROADMAP.md) for direction.
 
@@ -136,7 +136,7 @@ See [ROADMAP.md](ROADMAP.md) for direction.
 - [QUICKSTART.md](QUICKSTART.md) — from access to your first investigation
 - [Target-Centered Cognition](TARGET-CENTERED-COGNITION.md) — the organizing principle
 - [How ERIE Thinks](HOW-ERIE-THINKS.md) — deterministic-first cognition and escalation
-- [Cognitive Layers](COGNITIVE-LAYERS.md) — Chronos / ERIE / Scratch Pad
+- [Cognitive Layers](COGNITIVE-LAYERS.md) — Chronos / ERIE / Scratch
 - [INTEGRATION.md](INTEGRATION.md) — fitting ERIE into your architecture
 - [API.md](API.md) — the public API overview
 - [EVALUATION.md](EVALUATION.md) — how to evaluate ERIE
