@@ -1,78 +1,115 @@
 # ERIE
 
-**Epistemic Reasoning & Investigation Engine**
+> **The Successor to RAG**
 
-**ERIE answers. Better.**
+Retrieval-Augmented Generation (RAG) solved an important problem: giving language models better context.
 
-ERIE is an evidence-first reasoning engine that replaces traditional Retrieval-Augmented Generation (RAG).
+ERIE starts where RAG stops.
+
+RAG retrieves documents.
+
+ERIE conducts deterministic investigations.
+
+RAG assembles context.
+
+ERIE constructs understanding.
+
+RAG begins with retrieval.
+
+ERIE begins with purpose.
+
+ERIE is a deterministic, target-centered cognitive engine that organizes cognition around persistent **Targets** rather than transient reasoning episodes. Semantic reasoning is one capability within the engine—not the architecture itself.
 
 ---
 
-## The problem
+# The Cognitive Model
 
-Modern AI systems are very good at producing confident language.
+```
+Intent
+    |
+    v
+Target
+    |
+    v
+Satisfaction Criteria
+    |
+    v
+Deterministic Investigation
+    |
+    v
+State
+    |
+    v
+Semantic Reasoning (only if required)
+    |
+    v
+Resolution
+```
 
-The problem is not the quality of the prose. The problem is what sits underneath it.
+### Three Cognitive Layers
 
-When an application answers from retrieved text, the answer is only as trustworthy as the retrieval that fed it — and retrieval is lossy. It loses where information came from. It loses when it was true. It loses how pieces of information relate, conflict, or supersede one another. Most importantly, it loses the boundary between what the evidence actually supports and what the model simply generated.
+- **Chronos** remembers.
+- **ERIE** investigates.
+- **Scratch Pad** thinks.
 
-The result is an answer that sounds right and cannot be defended.
+Deterministic cognition happens first. Semantic models are invoked only when deterministic investigation reaches its boundary.
 
-ERIE exists to close that gap.
+---
 
-## Why ERIE
+# What ERIE preserves from RAG
+
+ERIE keeps the part of RAG that worked — grounding answers in real material — and replaces the part that did not: treating retrieved text as the end of cognition.
+
+- **Evidence with provenance.** Every piece of material carries where it came from, where it exists within its source, and when it was acquired.
+- **Structured knowledge, not text chunks.** Claims, relationships, events, and contradictions are resolved and preserved — disagreement is not silently flattened into a single confident answer.
+- **A testable evidence boundary.** Investigation may derive from supplied evidence. It may not introduce facts absent from that evidence. The constraint is enforceable, not advisory.
+- **Explainable results.** Every investigation returns its outcome together with the evidence it was grounded on and the claims derived from it.
+
+RAG finds text. ERIE establishes what the available evidence actually supports — and keeps working until the investigation is satisfied.
+
+# Purposeful investigation
 
 Most AI systems retrieve information.
 
 ERIE investigates.
 
-ERIE organizes disconnected enterprise knowledge into evidence with provenance, resolves that evidence into structured knowledge, and reasons over it — so every answer can be walked back to the evidence and sources that produced it.
+An investigation in ERIE is not a single question-and-answer exchange. It is a persistent object of cognition with a purpose, satisfaction criteria, a derived state, and a deterministic next action. It continues across reasoning cycles until its criteria are satisfied — or it is deliberately abandoned or archived.
 
-That makes ERIE's answers inspectable, traceable, and defensible.
+State is never guessed. It is deterministically derived from the satisfaction criteria: unknown, partial, ambiguous, resolved, exhausted, or reopened. Pressure and the next cognitive action follow from that derivation — continue, wait, acquire evidence, ask, invoke semantic reasoning, or resolve.
 
-## How ERIE is different from RAG
+See [Target-Centered Cognition](TARGET-CENTERED-COGNITION.md) and [How ERIE Thinks](HOW-ERIE-THINKS.md).
 
-Traditional RAG retrieves similar text, stuffs it into a prompt, and generates.
+# The cognitive budget
 
-ERIE replaces that retrieval layer with structured, evidence-first reasoning:
+Reasoning is expensive. Attention is finite.
 
-- **Evidence with provenance.** Every piece of material carries where it came from, where it exists within its source, and when it was acquired.
-- **Structured knowledge, not text chunks.** Claims, relationships, and contradictions are resolved and preserved — disagreement is not silently flattened into a single confident answer.
-- **A testable evidence boundary.** Reasoning may derive from supplied evidence. It may not introduce facts absent from that evidence. The constraint is enforceable, not advisory.
-- **Explainable results.** Every result returns the output, the evidence it was grounded on, and the claims derived from it.
+ERIE does not treat all knowledge equally. Each reasoning cycle receives a finite cognitive budget, allocated deterministically toward the targets that produce the greatest knowledge gain. The unresolved frontier, requested nouns, and evolving knowledge compete for attention — and attention favors work that reduces what is unknown.
 
-RAG finds text. ERIE establishes what the available evidence actually supports.
+# Where ERIE fits
 
-## The product narrative
-
-ERIE is the intelligence layer between enterprise knowledge and AI generation:
+ERIE sits between your knowledge sources and your AI application. It is the intelligence layer that turns raw material into purposeful, evidence-grounded investigation:
 
 ```text
 Enterprise Knowledge
         |
         v
+      Chronos
+        |
+Evidence . Claims . Events . Context
+        |
+        v
       ERIE
         |
-Evidence . Claims . Context
+ Targets . Criteria . Pressure
         |
         v
- Any Language Model
+ Any Language Model  (when the boundary demands it)
         |
         v
- Better Answers
+ Defensible, explainable answers
 ```
 
-ERIE is provider-independent. It does not replace your language model — it makes any language model answer better, because the model reasons over structured, provenance-bound evidence instead of retrieved text.
-
-## Where ERIE fits
-
-ERIE sits between your knowledge sources and your AI application, replacing the traditional retrieval layer:
-
-```text
-Sources -> ERIE -> Evidence . Claims . Context -> Your LLM -> Defensible answers
-```
-
-ERIE is infrastructure, not an application. It is domain-agnostic and designed to be embedded into applications that need answers they can inspect, trace, and defend.
+ERIE is infrastructure, not an application. It is domain-agnostic and provider-independent: it works with any language model, any storage backend, and any retrieval implementation.
 
 ## Principles
 
@@ -83,46 +120,38 @@ ERIE is infrastructure, not an application. It is domain-agnostic and designed t
 
 **ERIE answers. Better.**
 
-## Evaluating ERIE
+# Status
 
-ERIE is evaluated by behavior, not by how convincing generated prose sounds.
+ERIE v1.0.2 is platform complete and currently verified at **4,843 automated tests** across **307 source files** — ruff clean, mypy strict, pytest passing.
 
-Useful tests include evidence grounding, unsupported-claim detection, provenance preservation, evidence isolation, contradiction handling, traceability, repeatability, and explainability.
+The architecture has matured through two complementary subsystems:
 
-The central evaluation question is simple:
+- **Chronos v1** — persistent knowledge (world model, ontology, noun and event ledgers, evidence, provenance, evolution, materialization, placeholders, cognitive processors).
+- **ERIE 001-004** — purposeful investigation (finite cognitive attention, target-centered cognition, first-class satisfaction criteria, the cognitive scratch pad).
 
-> **Does the system faithfully represent what the evidence supports?**
+See [ROADMAP.md](ROADMAP.md) for direction.
 
-See [EVALUATION.md](EVALUATION.md) for the full evaluation framework, including how to benchmark ERIE against a RAG pipeline.
+# Documentation
 
-## Quick start
-
-1. Request evaluation access through the repository owner or ARCHETRON.
-2. Receive your credentials, endpoint specification, and request/response schemas.
-3. Send your first retrieval and reasoning requests.
-4. Inspect the results: output, supporting evidence, and claims.
-5. Run the evaluation suite from [EVALUATION.md](EVALUATION.md).
-
-See [QUICKSTART.md](QUICKSTART.md) for step-by-step guidance.
-
-## Documentation
-
-- [QUICKSTART.md](QUICKSTART.md) — from access to first grounded result
-- [INTEGRATION.md](INTEGRATION.md) — how ERIE fits into an existing AI architecture
-- [EVALUATION.md](EVALUATION.md) — how to evaluate ERIE against RAG
+- [QUICKSTART.md](QUICKSTART.md) — from access to your first investigation
+- [Target-Centered Cognition](TARGET-CENTERED-COGNITION.md) — the organizing principle
+- [How ERIE Thinks](HOW-ERIE-THINKS.md) — deterministic-first cognition and escalation
+- [Cognitive Layers](COGNITIVE-LAYERS.md) — Chronos / ERIE / Scratch Pad
+- [INTEGRATION.md](INTEGRATION.md) — fitting ERIE into your architecture
 - [API.md](API.md) — the public API overview
+- [EVALUATION.md](EVALUATION.md) — how to evaluate ERIE
 - [FAQ.md](FAQ.md) — frequently asked questions
 - [ROADMAP.md](ROADMAP.md) — product direction
 
 Historical engineering documentation remains available under [archive/](archive/README.md) for reference.
 
-## Obtaining access
+# Obtaining access
 
 ERIE is closed-source proprietary software. Evaluation access and commercial licensing are provided through controlled API access from ARCHETRON.
 
 API credentials, endpoint-specific documentation, and current request/response schemas are supplied with access, so evaluators work against the deployed interface rather than documentation that may drift from it.
 
-## Repository policy
+# Repository policy
 
 This repository contains public ERIE product information and documentation. It does not contain ERIE's proprietary implementation.
 

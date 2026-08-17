@@ -1,11 +1,11 @@
 # ERIE Quick Start
 
-This guide takes you from requesting access to your first grounded result. It is written for adoption, not architecture.
+This guide takes you from requesting access to your first investigation. It is written for adoption, not architecture.
 
 ## Prerequisites
 
 - An AI application that currently uses a language model
-- Knowledge sources your application answers from
+- Knowledge sources your application investigates
 - A desire for answers that can be inspected, traced, and defended
 
 You do not need to change your language model. ERIE works with any model provider.
@@ -27,65 +27,62 @@ With access you receive:
 
 These materials are authoritative for your integration. Documentation in this repository describes ERIE's public concepts; the deployed API specification governs the running service.
 
-## Step 3 — Make your first retrieval request
+## Step 3 — Define the investigation
 
-Retrieval finds candidate evidence with provenance. Conceptually:
-
-```python
-request = RetrievalRequest(
-    query="What does the available evidence support?",
-    limit=10,
-)
-
-result = engine.run(request)
-
-for evidence in result.evidence:
-    print(evidence.reference.source_id)
-    print(evidence.reference.location)
-```
-
-The exact request shape, authentication, and endpoint are defined by the API specification supplied with your access.
-
-## Step 4 — Make your first reasoning request
-
-Reasoning accepts a prompt together with an ordered body of evidence — an EvidenceSet — and returns a result that contains the output, the evidence it was grounded on, and the claims derived from that evidence:
+An ERIE call is an investigation, not a question. An investigation begins with an intent and satisfaction criteria:
 
 ```python
-request = InferenceRequest(
-    prompt="Summarize what the evidence supports about the incident.",
-    evidence=evidence_set,
-)
-
-result = engine.run(request)
-
-print(result.output)
-print(result.evidence)
-print(result.claims)
+target = Intent("resolve employment", kind="resolve")
+target.add_criterion("employer identified", kind="identity", required=True)
+target.add_criterion("evidence confirmed", kind="evidence", required=True)
 ```
 
-The governing constraint: reasoning may derive from supplied evidence. It may not introduce facts absent from that evidence.
+Criteria define what it means for the investigation to be satisfied. Without criteria, "Resolved" has no meaning.
 
-## Step 5 — Inspect the result
+See [Target-Centered Cognition](TARGET-CENTERED-COGNITION.md).
 
-A grounded result is inspectable:
+## Step 4 — Evaluate deterministically first
 
-- `output` — the produced answer
-- `evidence` — the material the answer was grounded on, with provenance
-- `claims` — the assertions derived from that evidence
+ERIE evaluates the criteria deterministically before anything else:
+
+```python
+state = target.evaluate()
+```
+
+The state is derived, never guessed: unknown, partial, ambiguous, resolved, exhausted, or reopened. From the state and pressure, ERIE chooses the next cognitive action deterministically — continue, wait, acquire evidence, ask, invoke semantic reasoning, or resolve.
+
+## Step 5 — Escalate only at the boundary
+
+Semantic reasoning is invoked only when deterministic investigation reaches its boundary — and only as a policy decision, never by default. When it is invoked, the model receives the complete investigation state through a Piggyback Seed: the target, its criteria, satisfied and unsatisfied criteria, missing evidence, state, pressure, the requested operation, and the scratch pad.
+
+The model does not start from scratch. It joins an existing investigation.
+
+See [How ERIE Thinks](HOW-ERIE-THINKS.md).
+
+## Step 6 — Inspect the outcome
+
+A grounded outcome is inspectable:
+
+- the produced result
+- the evidence it was grounded on, with provenance
+- the claims derived from that evidence
 
 Every claim should be traceable back to supporting evidence. If it is not, treat that as a defect.
 
-## Step 6 — Evaluate before you integrate
+## Step 7 — Evaluate before you integrate
 
-Before wiring ERIE into production, run the evaluation suite in [EVALUATION.md](EVALUATION.md): grounding, unsupported-claim detection, provenance preservation, evidence isolation, contradiction handling, traceability, and repeatability.
+Before wiring ERIE into production, run the evaluation suite in [EVALUATION.md](EVALUATION.md): grounding, unsupported-claim detection, provenance preservation, evidence isolation, contradiction handling, traceability, repeatability, and explainability — on your own evidence.
 
-## Step 7 — Integrate
+## Step 8 — Integrate
 
-Once evaluation passes, see [INTEGRATION.md](INTEGRATION.md) for how ERIE replaces the retrieval layer in your existing architecture, and [API.md](API.md) for the public API surface.
+Once evaluation passes, see [INTEGRATION.md](INTEGRATION.md) for how ERIE fits into your existing architecture, and [API.md](API.md) for the public API surface.
 
 ## What's next
 
+- [Target-Centered Cognition](TARGET-CENTERED-COGNITION.md) — the organizing principle
+- [How ERIE Thinks](HOW-ERIE-THINKS.md) — deterministic-first cognition and escalation
+- [Cognitive Layers](COGNITIVE-LAYERS.md) — Chronos / ERIE / Scratch Pad
 - [INTEGRATION.md](INTEGRATION.md) — fitting ERIE into your architecture
-- [EVALUATION.md](EVALUATION.md) — evaluating ERIE against RAG
+- [EVALUATION.md](EVALUATION.md) — evaluating ERIE
 - [API.md](API.md) — API overview
 - [FAQ.md](FAQ.md) — common questions

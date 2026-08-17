@@ -1,12 +1,25 @@
 # Evaluating ERIE
 
-ERIE is an evidence-first reasoning engine that replaces traditional Retrieval-Augmented Generation (RAG).
+ERIE is a deterministic, target-centered cognitive engine — the successor to Retrieval-Augmented Generation (RAG).
 
-It is evaluated by behavior, not by how convincing generated prose sounds. The point of evaluation is to test the relationship between evidence and output — not to score fluency.
+It is evaluated by behavior, not by how convincing generated prose sounds. The point of evaluation is to test the relationship between evidence and outcome — not to score fluency.
 
 The central evaluation question is:
 
 > **Does the system faithfully represent what the evidence supports?**
+
+## Evaluating investigations
+
+ERIE organizes cognition around investigations. Beyond answer quality, evaluate the investigation itself:
+
+- **State derivation.** Is the investigation's state deterministically derived from its satisfaction criteria? Unknown, partial, ambiguous, resolved, exhausted, and reopened must never be guessed.
+- **Criteria satisfaction.** Does an investigation resolve only when all required criteria are satisfied? Does a blocking criterion prevent resolution while unsatisfied?
+- **Escalation discipline.** Is semantic reasoning invoked only at the deterministic boundary, never by default? Does the system acquire evidence or ask before escalating?
+- **Pressure.** Does pressure drive escalation deterministically, independent of reasoning?
+- **The scratch pad.** Does working cognition stay out of persistent knowledge? Do verified outcomes pass deterministic validation before becoming knowledge?
+- **Piggyback seeds.** When semantic reasoning is invoked, does the model receive the complete investigation state rather than starting from scratch?
+
+See [How ERIE Thinks](HOW-ERIE-THINKS.md).
 
 ## Evaluation dimensions
 
@@ -80,5 +93,7 @@ Answer quality alone is not the product. Fluency, apparent confidence, and surfa
 ## See also
 
 - [QUICKSTART.md](QUICKSTART.md) — running your first evaluation
+- [How ERIE Thinks](HOW-ERIE-THINKS.md) — what to verify about escalation
+- [Target-Centered Cognition](TARGET-CENTERED-COGNITION.md) — what an investigation is
 - [INTEGRATION.md](INTEGRATION.md) — where ERIE fits in your architecture
 - [FAQ.md](FAQ.md) — common questions

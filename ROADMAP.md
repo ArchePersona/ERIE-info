@@ -1,26 +1,57 @@
 # ERIE Roadmap
 
-ERIE is an evidence-first reasoning engine that replaces traditional Retrieval-Augmented Generation (RAG).
+ERIE is a deterministic, target-centered cognitive engine — the successor to RAG.
 
 ## Current status
 
-ERIE v1.0.2 is platform complete. The engine, runtime, and platform are implemented and verified; public application interfaces and reference adapters are in place.
+**ERIE v1.0.2 is platform complete** and currently verified at:
 
-ERIE is under active development, and public documentation describes supported external concepts and behavioral guarantees without exposing proprietary implementation details.
+- **4,843 automated tests**
+- **307 source files**
+- ruff clean
+- mypy strict clean
+- pytest passing
+
+The architecture has matured through two complementary subsystems:
+
+### Chronos v1 — persistent knowledge
+
+Chronos remembers. It provides the canonical memory of the system across twelve milestones:
+
+- Chronos core (persistent knowledge memory)
+- world model ontology
+- noun discovery
+- knowledge maturity (1-9)
+- knowledge evolution
+- knowledge materialization
+- demand-driven expansion
+- relationship discovery
+- partial knowledge representation (canonical placeholders)
+- cognitive processor architecture (the Frontier Processor)
+- the noun ledger
+- the event ledger
+
+### ERIE 001-004 — purposeful investigation
+
+ERIE investigates. It provides target-centered cognition across four milestones:
+
+- ERIE-001: finite cognitive attention and the cognitive budget
+- ERIE-002: target-centered cognition (Intent, Targets, Criteria, State, Pressure, Next Action)
+- ERIE-003: first-class satisfaction criteria (kinds, composition, weight, recursion)
+- ERIE-004: the cognitive scratch pad
 
 ## Direction
 
-Development is application-driven: ERIE evolves when a consuming application identifies a genuine platform capability gap, not through speculative framework expansion.
+Development is application-driven and focused on coordination across the ARCHETRON ecosystem, where ERIE serves as the dedicated investigation channel.
 
 Expected work includes:
 
-- evaluation access expansion for new adopters
+- executive coordination of Active Targets, unsatisfied criteria, and pressure across engines
+- additional cognitive processors and ledgers as consumer needs arise
 - integration documentation driven by real integrations
-- additional reference adapters
-- consumer-driven platform capabilities
 - performance improvements and bug fixes
 
-No architectural redesign is planned.
+The public story has changed because the architecture has matured: ERIE is no longer described as a retrieval system. It is described as the successor to RAG — a deterministic, target-centered engine for purposeful investigation.
 
 ## Stability commitment
 
@@ -36,5 +67,7 @@ ERIE evolves through demonstrated consumer need. Evaluation access is the primar
 
 - [README.md](README.md)
 - [QUICKSTART.md](QUICKSTART.md)
-- [INTEGRATION.md](INTEGRATION.md)
+- [Target-Centered Cognition](TARGET-CENTERED-COGNITION.md)
+- [How ERIE Thinks](HOW-ERIE-THINKS.md)
+- [Cognitive Layers](COGNITIVE-LAYERS.md)
 - [FAQ.md](FAQ.md)

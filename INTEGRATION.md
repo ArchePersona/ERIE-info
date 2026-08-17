@@ -2,24 +2,29 @@
 
 This document explains how ERIE fits into an existing AI architecture.
 
-ERIE is an evidence-first reasoning engine that replaces traditional Retrieval-Augmented Generation (RAG). It is the intelligence layer between enterprise knowledge and AI generation.
+ERIE is a deterministic, target-centered cognitive engine — the successor to Retrieval-Augmented Generation (RAG). It is the intelligence layer between enterprise knowledge and AI generation.
 
 ```text
 Enterprise Knowledge
         |
         v
+      Chronos
+        |
+Evidence . Claims . Events . Context
+        |
+        v
       ERIE
         |
-Evidence . Claims . Context
+ Targets . Criteria . Pressure
         |
         v
- Any Language Model
+ Any Language Model  (when the boundary demands it)
         |
         v
- Better Answers
+ Defensible, explainable answers
 ```
 
-ERIE does not replace your application, your language model, or your knowledge sources. It replaces the retrieval layer between them.
+ERIE does not replace your application, your language model, or your knowledge sources. It supersedes the retrieval layer between them — and, beyond that, it changes what the system is trying to do: satisfy investigations rather than answer prompts.
 
 ## Replacing the retrieval layer
 
@@ -32,23 +37,23 @@ Query -> Retriever -> Text chunks -> Prompt -> LLM -> Answer
 With ERIE:
 
 ```text
-Query -> ERIE -> Evidence . Claims . Context -> Prompt -> LLM -> Answer + Evidence + Claims
+Target -> ERIE -> Evidence . Claims . Context -> Deterministic evaluation -> LLM (only at the boundary) -> Resolved investigation
 ```
 
-The difference is what the language model reasons over:
+The difference is what the language model reasons over — and whether it is consulted at all:
 
 - RAG feeds the model retrieved text chunks, with no structure and no provenance.
-- ERIE feeds the model evidence with provenance, resolved claims, relationships, and context — and returns the answer together with the evidence and claims that support it.
+- ERIE feeds the model evidence with provenance, resolved claims, relationships, and context — and consults the model only when deterministic investigation reaches its boundary.
 
-Your language model stays the same. The material it reasons over changes.
+Your language model stays the same. The material it reasons over changes — and so does the decision about when reasoning is needed at all.
 
-## Evidence-grounded context
+## Investigation-grounded context
 
-ERIE's reasoning contract accepts a prompt together with an EvidenceSet — an ordered body of evidence.
+An ERIE integration is organized around investigations. An investigation has an intent, satisfaction criteria, a derived state, pressure, and a deterministic next action. Deterministic evaluation comes first; semantic reasoning is invoked only at the defined boundary.
 
 The governing constraint is straightforward:
 
-> **Reasoning may derive from supplied evidence. It may not introduce facts absent from that evidence.**
+> **Investigation may derive from supplied evidence. It may not introduce facts absent from that evidence.**
 
 This makes the evidence boundary testable rather than merely advisory. An integrating application can verify that every claim in a result is traceable to supplied evidence with provenance.
 
@@ -78,24 +83,26 @@ Traditional retrieval silently collapses disagreement into a single confident an
 
 ## The public integration surface
 
-Applications interact with ERIE through defined interfaces:
+Applications interact with ERIE through defined interfaces organized around investigations:
 
-- `RetrievalRequest` — a query, a result limit, and optional filters; returns candidate evidence with provenance
-- `EvidenceSet` — the ordered body of evidence supplied to a reasoning operation
-- `InferenceRequest` — a prompt together with an EvidenceSet, establishing the factual boundary for the operation
-- `InferenceResult` — the output, the evidence it was grounded on, and the derived claims
+- `Intent` and `Target` — why cognition exists and the persistent object of cognition
+- `SatisfactionCriterion` — what it means for the Target to be satisfied
+- `TargetState` — the derived state (unknown, partial, ambiguous, resolved, exhausted, reopened)
+- `Pressure` — the deterministic property that drives escalation policy
+- `NextCognitiveAction` — the deterministic next action (continue, wait, acquire evidence, ask, invoke semantic reasoning, resolve)
+- `PiggybackSeed` — the complete investigation state transferred when semantic reasoning is invoked
+- `EvidenceSet` and `InferenceResult` — the evidence grounding for each operation
 
 ```python
-request = RetrievalRequest(
-    query="What does the available evidence support?",
-    limit=10,
-)
+target = Intent("resolve employment", kind="resolve")
+target.add_criterion("employer identified", kind="identity", required=True)
+target.add_criterion("evidence confirmed", kind="evidence", required=True)
 
-result = engine.run(request)
+state = target.evaluate()
 
-print(result.output)
-print(result.evidence)
-print(result.claims)
+if state.next_action == "invoke_semantic_reasoning":
+    seed = target.seed_for_semantic_reasoning()
+    result = model.join(seed)
 ```
 
 The exact network API, authentication mechanism, endpoints, and serialized schemas are supplied with API access and are authoritative for an active integration.
@@ -112,6 +119,9 @@ Before committing to an integration, evaluate ERIE on your own evidence: [EVALUA
 
 ## See also
 
-- [QUICKSTART.md](QUICKSTART.md) — from access to first result
+- [QUICKSTART.md](QUICKSTART.md) — from access to first investigation
+- [Target-Centered Cognition](TARGET-CENTERED-COGNITION.md) — the organizing principle
+- [How ERIE Thinks](HOW-ERIE-THINKS.md) — deterministic-first cognition and escalation
+- [Cognitive Layers](COGNITIVE-LAYERS.md) — Chronos / ERIE / Scratch Pad
 - [API.md](API.md) — API overview
 - [FAQ.md](FAQ.md) — common questions

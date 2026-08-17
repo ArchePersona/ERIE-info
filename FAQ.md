@@ -2,27 +2,37 @@
 
 ## What is ERIE?
 
-ERIE is the **Epistemic Reasoning & Investigation Engine** — an evidence-first reasoning engine that replaces traditional Retrieval-Augmented Generation (RAG). It organizes enterprise knowledge into evidence with provenance, resolves that evidence into structured knowledge, and reasons over it so answers can be inspected, traced, and defended.
+ERIE is the **Epistemic Reasoning & Investigation Engine** — a deterministic, target-centered cognitive engine and the successor to Retrieval-Augmented Generation (RAG). It organizes cognition around persistent Targets rather than transient reasoning episodes: an investigation has intent, satisfaction criteria, a derived state, pressure, and a deterministic next action.
 
 **ERIE answers. Better.**
 
 ## Why does ERIE exist?
 
-Because retrieved text is not evidence. Traditional AI systems are good at producing confident language, but the answer is only as trustworthy as the retrieval that fed it. ERIE exists to close the gap between what an answer sounds like and what the available evidence actually supports.
+Because retrieved text is not evidence — and answering a prompt is not the same as satisfying an investigation. Traditional AI systems are good at producing confident language, but the answer is only as trustworthy as the retrieval that fed it. ERIE exists to close the gap between what an answer sounds like and what the available evidence actually supports — and to keep working until the investigation is satisfied.
 
 ## How is ERIE different from RAG?
 
-RAG retrieves similar text, stuffs it into a prompt, and generates. ERIE replaces the retrieval layer with structured, evidence-first reasoning: evidence with provenance, resolved claims and relationships, preserved contradictions, a testable evidence boundary, and results that return the output together with the evidence and claims that support it.
+RAG was the previous evolutionary step: it gave language models better context. ERIE is the successor. RAG retrieves documents and generates; ERIE conducts deterministic investigations. RAG assembles context; ERIE constructs understanding. RAG begins with retrieval; ERIE begins with purpose.
+
+ERIE keeps the part of RAG that worked — grounding answers in real material — and replaces the part that did not: treating retrieved text as the end of cognition.
 
 See [EVALUATION.md](EVALUATION.md) for how to measure the difference.
 
+## What is target-centered cognition?
+
+ERIE organizes cognition around Targets, not reasoning. A Target is a persistent object of cognition with intent, satisfaction criteria, a derived state, pressure, and a next cognitive action. Reasoning is one capability used to advance a Target — it is not the organizing principle of the engine. See [TARGET-CENTERED-COGNITION.md](TARGET-CENTERED-COGNITION.md).
+
 ## Does ERIE replace my language model?
 
-No. ERIE is provider-independent and works with any language model. It feeds the model structured, provenance-bound evidence instead of retrieved text — the model produces better, defensible answers.
+No. ERIE is provider-independent and works with any language model. The model is never the default reasoning engine: ERIE evaluates deterministically first and consults the model only when deterministic investigation reaches its boundary.
+
+## What are the three cognitive layers?
+
+Chronos remembers, ERIE investigates, and the Scratch Pad thinks. Chronos is persistent knowledge; ERIE is purposeful investigation; the Scratch Pad is temporary working cognition. Nothing moves directly from speculation into persistent knowledge — every outcome must pass deterministic validation. See [COGNITIVE-LAYERS.md](COGNITIVE-LAYERS.md).
 
 ## Does ERIE replace my application?
 
-No. ERIE is infrastructure. It sits between your knowledge sources and your AI application, replacing the retrieval layer. Applications consume ERIE through its public API.
+No. ERIE is infrastructure. It sits between your knowledge sources and your AI application, superseding the retrieval layer. Applications consume ERIE through its public API.
 
 ## Is ERIE open source?
 
@@ -59,6 +69,9 @@ Historical engineering documentation is archived under [archive/](archive/README
 ## See also
 
 - [QUICKSTART.md](QUICKSTART.md)
+- [Target-Centered Cognition](TARGET-CENTERED-COGNITION.md)
+- [How ERIE Thinks](HOW-ERIE-THINKS.md)
+- [Cognitive Layers](COGNITIVE-LAYERS.md)
 - [INTEGRATION.md](INTEGRATION.md)
 - [EVALUATION.md](EVALUATION.md)
 - [API.md](API.md)
