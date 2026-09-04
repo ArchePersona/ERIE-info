@@ -147,9 +147,13 @@ Historical engineering documentation remains available under [archive/](archive/
 
 # Obtaining access
 
-ERIE is closed-source proprietary software. Evaluation access and commercial licensing are provided through controlled API access from ARCHETRON.
+ERIE is closed-source proprietary software. Evaluation access and commercial licensing are provided through controlled API access from VOLSHi.
 
 API credentials, endpoint-specific documentation, and current request/response schemas are supplied with access, so evaluators work against the deployed interface rather than documentation that may drift from it.
+
+# Relationship to ARCHETRON
+
+ERIE is a technology within ARCHETRON, the technology ecosystem built by VOLSHi. ERIE's responsibility within the ecosystem is evidence, structured knowledge, and evidence-grounded investigation.
 
 # Repository policy
 
