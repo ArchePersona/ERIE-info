@@ -1,6 +1,6 @@
 # ERIE
 
-> **The Successor to RAG**
+> **Evidence-grounded cognitive infrastructure beyond RAG.**
 
 Retrieval-Augmented Generation (RAG) solved an important problem: giving language models better context.
 
@@ -151,7 +151,9 @@ ERIE is closed-source proprietary software. Evaluation access and commercial lic
 
 API credentials, endpoint-specific documentation, and current request/response schemas are supplied with access, so evaluators work against the deployed interface rather than documentation that may drift from it.
 
-# Relationship to ARCHETRON
+# VOLSHi Span
+
+Models can generate answers. ERIE gives intelligent systems a durable epistemic layer for establishing what available evidence actually supports.
 
 ERIE is part of the VOLSHi span between machine intelligence and human experience. Its responsibility is knowing: preserving evidence, provenance, structured knowledge, and the basis for conclusions outside any replaceable model. Within ARCHETRON, ERIE provides the epistemic infrastructure that lets intelligence distinguish what is known from what is merely generated.
 
