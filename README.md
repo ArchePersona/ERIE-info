@@ -153,7 +153,7 @@ API credentials, endpoint-specific documentation, and current request/response s
 
 # Relationship to ARCHETRON
 
-ERIE is a technology within ARCHETRON, the technology ecosystem built by VOLSHi. ERIE's responsibility within the ecosystem is evidence, structured knowledge, and evidence-grounded investigation.
+ERIE is part of the VOLSHi span between machine intelligence and human experience. Its responsibility is knowing: preserving evidence, provenance, structured knowledge, and the basis for conclusions outside any replaceable model. Within ARCHETRON, ERIE provides the epistemic infrastructure that lets intelligence distinguish what is known from what is merely generated.
 
 # Repository policy
 
